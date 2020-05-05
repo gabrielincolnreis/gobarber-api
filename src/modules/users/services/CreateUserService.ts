@@ -1,7 +1,7 @@
 import User from '../infra/typeorm/entities/User';
 import { hash } from 'bcryptjs';
 import AppError from '@shared/errors/AppError';
-import IUsersRepository from '../repositories/IUserRepository';
+import IUsersRepository from '../repositories/IUsersRepository';
 interface IRequest {
   name: string;
   email: string;
