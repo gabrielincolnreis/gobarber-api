@@ -1,7 +1,10 @@
 node_modules/
 .vscode/
 temp/*
+temp/uploads/*
 coverage/
 
 !temp/.gitkeep
+!temp/uploads
+!temp/uploads/.gitkeep
 
