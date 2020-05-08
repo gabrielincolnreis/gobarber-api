@@ -4,6 +4,8 @@ import { inject, injectable } from 'tsyringe';
 import IMailProvider from '@shared/container/providers/MailProvider/models/IMailProvider';
 import IUserTokensRepository from '../repositories/IUserTokensRepository';
 
+import path from 'path';
+
 interface IRequest {
   email: string;
 }
@@ -28,7 +30,12 @@ class SendForgotPasswordEmailSerice {
     }
 
     const { token } = await this.userTokenRepository.generate(user.id);
-
+    const forgotPasswordTemplate = path.resolve(
+      __dirname,
+      '..',
+      'template',
+      'forgot_password.hbs',
+    );
     await this.mailProvider.sendMail({
       to: {
         name: user.name,
@@ -36,10 +43,11 @@ class SendForgotPasswordEmailSerice {
       },
       subject: 'GoStack | Recuperação de senha',
       templateData: {
-        template: 'Olá {{name}}: {{token}}',
+        file: forgotPasswordTemplate,
         variables: {
           name: user.name,
           token,
+          link: `http://localhost:3000/reset_password?token=${token}`,
         },
       },
     });
