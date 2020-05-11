@@ -1,12 +1,15 @@
 import 'reflect-metadata';
 import express, { Request, Response, NextFunction } from 'express';
 import 'express-async-errors';
-import routes from './routes';
+
 import '@shared/infra/typeorm';
 import '@shared/container';
 import AppError from '@shared/errors/AppError';
 import uploadConfig from '@config/upload';
 import cors from 'cors';
+
+import routes from './routes';
+
 const app = express();
 
 app.use(cors());
@@ -15,7 +18,7 @@ app.use('/files', express.static(uploadConfig.uploadsFolder));
 app.use(routes);
 
 app.use(
-  (err: Error, request: Request, response: Response, next: NextFunction) => {
+  (err: Error, request: Request, response: Response, _next: NextFunction) => {
     if (err instanceof AppError) {
       return response.status(err.statusCode).json({
         status: 'error',
@@ -24,6 +27,7 @@ app.use(
     }
 
     console.log(err);
+
     return response.status(500).json({
       status: 'error',
       message: 'Internal server error',

@@ -2,7 +2,7 @@ import IUserTokensRepository from '@modules/users/repositories/IUserTokensReposi
 
 import { uuid } from 'uuidv4';
 import UserToken from '@modules/users/infra/typeorm/entities/UserToken';
-import AppError from '@shared/errors/AppError';
+
 class FakeUserTokensRepository implements IUserTokensRepository {
   private userTokens: UserToken[] = [];
 

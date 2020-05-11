@@ -21,6 +21,11 @@
   },
   "plugins": ["@typescript-eslint", "prettier"],
   "rules": {
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { "argsIgnorePattern": "^_" }
+    ],
+    "no-useless-constructor": "off",
     "prettier/prettier": "error",
     "@typescript-eslint/camelcase": "off",
     "@typescript-eslint/interface-name-prefix": [
@@ -29,12 +34,7 @@
         "prefixWithI": "always"
       }
     ],
-    "@typescript-eslint/no-unused-vars": [
-      "error",
-      {
-        "argsIgnorePatern": "_"
-      }
-    ],
+
     "class-methods-use-this": "off",
     "import/extensions": [
       "error",

@@ -3,6 +3,7 @@ import ICreateAppointmentsDTO from '@modules/appointments/dtos/ICreateAppointmen
 import { uuid } from 'uuidv4';
 import Appointment from '@modules/appointments/infra/typeorm/entities/Appointments';
 import { isEqual } from 'date-fns';
+
 class AppointmentsRepository implements IAppointmentsRespository {
   private appointment: Appointment[] = [];
 

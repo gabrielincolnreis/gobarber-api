@@ -1,9 +1,8 @@
-import IMailProvider from '../models/IMailProvider';
 import nodemailer, { Transporter } from 'nodemailer';
+import { inject, injectable } from 'tsyringe';
+import IMailProvider from '../models/IMailProvider';
 import ISendMailDTO from '../dtos/ISendMailDTO';
 import IMailTemplateProvider from '../../MailTemplateProvider/models/IMailTemplateProvider';
-
-import { inject, injectable } from 'tsyringe';
 
 @injectable()
 export default class EtheralMailProvider implements IMailProvider {
@@ -27,6 +26,7 @@ export default class EtheralMailProvider implements IMailProvider {
       this.client = transporter;
     });
   }
+
   public async sendMail({
     to,
     from,
