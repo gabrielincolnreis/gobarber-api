@@ -2,9 +2,11 @@ import IAppointmentsRespository from '@modules/appointments/repositories/IAppoin
 import ICreateAppointmentsDTO from '@modules/appointments/dtos/ICreateAppointmentsDTO';
 import { uuid } from 'uuidv4';
 import Appointment from '@modules/appointments/infra/typeorm/entities/Appointments';
-import { isEqual } from 'date-fns';
+import { isEqual, getMonth, getYear, getDate } from 'date-fns';
+import IFindAllInMonthFromProviderDTO from '@modules/appointments/dtos/IFindAllInMonthFromProviderDTO';
+import IFindAllInDayFromProviderDTO from '@modules/appointments/dtos/IFindAllInDayFromProviderDTO';
 
-class AppointmentsRepository implements IAppointmentsRespository {
+class FakeAppointmentsRepository implements IAppointmentsRespository {
   private appointment: Appointment[] = [];
 
   public async findByDate(date: Date): Promise<Appointment | undefined> {
@@ -13,6 +15,40 @@ class AppointmentsRepository implements IAppointmentsRespository {
     );
 
     return findAppointment;
+  }
+
+  public async findAllInMonthFromProvider({
+    provider_id,
+    month,
+    year,
+  }: IFindAllInMonthFromProviderDTO): Promise<Appointment[]> {
+    const appointments = this.appointment.filter(appointment => {
+      return (
+        appointment.provider_id === provider_id &&
+        getMonth(appointment.date) + 1 === month &&
+        getYear(appointment.date) === year
+      );
+    });
+
+    return appointments;
+  }
+
+  public async findAllInDayFromProvider({
+    provider_id,
+    day,
+    month,
+    year,
+  }: IFindAllInDayFromProviderDTO): Promise<Appointment[]> {
+    const appointments = this.appointment.filter(appointment => {
+      return (
+        appointment.provider_id === provider_id &&
+        getDate(appointment.date) === day &&
+        getMonth(appointment.date) + 1 === month &&
+        getYear(appointment.date) === year
+      );
+    });
+
+    return appointments;
   }
 
   public async create({
@@ -29,4 +65,4 @@ class AppointmentsRepository implements IAppointmentsRespository {
   }
 }
 
-export default AppointmentsRepository;
+export default FakeAppointmentsRepository;
