@@ -18,8 +18,8 @@
     "type": "mongodb",
     "host": "localhost",
     "port": 27017,
-    "useUnifiedTopology": true,
     "database": "gostack",
+    "useUnifiedTopology": true,
     "entities": ["./src/modules/**/infra/typeorm/schemas/*.ts"]
   }
 ]

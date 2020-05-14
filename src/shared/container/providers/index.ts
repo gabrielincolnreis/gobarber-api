@@ -1,8 +1,5 @@
 import { container } from 'tsyringe';
 
-import INotificationsRepository from '@modules/notifications/repositories/INotificationsRepository';
-import NotificationsRepository from '@modules/notifications/infra/typeorm/repositories/NotificationsRepository';
-
 import DiskStorageProvider from './StorageProvider/implementations/DiskStorageProvider';
 import IStorageProvider from './StorageProvider/models/IStorageProvider';
 
@@ -25,9 +22,4 @@ container.registerSingleton<IMailTemplateProvider>(
 container.registerInstance<IMailProvider>(
   'MailProvider',
   container.resolve(EtheralMailProvider),
-);
-
-container.registerInstance<INotificationsRepository>(
-  'NotificationsRepository',
-  container.resolve(NotificationsRepository),
 );
