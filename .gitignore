@@ -4,6 +4,8 @@ temp/*
 temp/uploads/*
 coverage/
 
+.env
+
 !temp/.gitkeep
 !temp/uploads
 !temp/uploads/.gitkeep
