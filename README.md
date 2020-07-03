@@ -72,7 +72,8 @@ $ yarn
 # Active containers in docker
 
 # mysql
-$ docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root  -d -t mysql --default-authentication-plugin=mysql_native_password
+$ docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root  -d -t mysql 
+--default-authentication-plugin=mysql_native_password
 
 # redis
 $ docker run --name redis -p 6379:6379 -d -t redis:alpine
