@@ -138,6 +138,10 @@ The _token_ necessary to carry out most requests is generated from the route **`
 
 - **`POST / providers /: provider_id / day-availability`**: The route must receive the _token_ of the authenticated user, the`provider_id` field as a route parameter and the `day`,`month` and `fields year` as the request query and returns the available times on the informed day.
 
+## License
+
+This project is under the MIT license. See the [LICENSE](https://github.com/matheuscastroweb/gobarber-api/blob/master/LICENSE) for more information.
+
 ---
 
 [nodejs]: https://nodejs.org/
