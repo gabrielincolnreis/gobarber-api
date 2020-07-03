@@ -1,13 +1,10 @@
-sudo: false
-language: node_js
-node_js:
-  - '12'
-  - 'node'
-
-cache: yarn
-
-install:
-  - yarn
-
-script:
-  - yarn test
+{
+  'language': 'node_js',
+  'os': ['linux'],
+  'dist': 'xenial',
+  'sudo': false,
+  'node_js': ['12', 'node'],
+  'cache': { 'yarn': true },
+  'install': ['yarn'],
+  'script': ['yarn test'],
+}

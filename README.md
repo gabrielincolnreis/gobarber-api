@@ -1,11 +1,17 @@
 <h1 align="center">
-<img alt="gobarber-logo" title="gobarber-logo" src="https://res.cloudinary.com/matheuscastroweb/image/upload/v1593749057/gobarber/gobarber-logo_rkoeqd.svg" width="180px" />
+<img alt="gobarber-logo" title="gobarber-logo" src="https://res.cloudinary.com/matheuscastroweb/image/upload/v1593749057/gobarber/gobarber-logo_rkoeqd.svg" width="250px" />
 </h1>
 
 <h4 align="center">
 Completed api using typescript
 (documentation in development)
 </h4>
+
+<p align="center">
+  <img alt="travis" src="https://travis-ci.org/matheuscastroweb/gobarber-api.svg?branch=master" />
+  <img alt="shields.io" src="https://img.shields.io/github/issues/matheuscastroweb/gobarber-api" />
+   <img alt="shields.io" src="https://img.shields.io/github/license/matheuscastroweb/gobarber-api" />
+</p>
 
 <div align="center">
 
