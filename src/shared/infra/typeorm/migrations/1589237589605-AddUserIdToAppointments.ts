@@ -12,7 +12,7 @@ export default class AddUserIdToAppointments1589237589605
       'appointments',
       new TableColumn({
         name: 'user_id',
-        type: 'varchar',
+        type: 'uuid',
         isNullable: true,
       }),
     );
@@ -20,7 +20,7 @@ export default class AddUserIdToAppointments1589237589605
     await queryRunner.createForeignKey(
       'appointments',
       new TableForeignKey({
-        name: 'AppointmentsUser',
+        name: 'AppointmentUser',
         columnNames: ['user_id'],
         referencedColumnNames: ['id'],
         referencedTableName: 'users',
@@ -31,7 +31,7 @@ export default class AddUserIdToAppointments1589237589605
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropForeignKey('appointments', 'AppointmentsUser');
+    await queryRunner.dropForeignKey('appointments', 'AppointmentUser');
 
     await queryRunner.dropColumn('appointments', 'user_id');
   }
